@@ -18,8 +18,11 @@ from django.urls import path, include
 
 from django.conf.urls.static import static
 from django.conf import settings
+from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', views.home),
+    path('post/<int:post_id>', views.post),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
