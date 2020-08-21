@@ -8,7 +8,9 @@
 <ul>
 {% for article in object_list %}
     <li>
-        <a href="{% url 'article' article.pk %} ">{{ article.title }}</a> - {{ article.author }}
+        <a href="{% url 'article' article.pk %} ">{{ article.title }}</a>
+         - {{ article.author }} - 
+        <a href="{% url 'update_article' article.pk %}">(Edit)</a><br/>
         {{ article.summary|safe }}
     </li>
 {% endfor %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Article
 from .forms import ArticleForm
 
@@ -15,3 +15,8 @@ class AddArticleView(CreateView):
     model = Article
     form_class = ArticleForm
     template_name = 'add_article.html'
+
+class UpdateArticleView(UpdateView):
+    model = Article
+    form_class = ArticleForm
+    template_name = 'update_article.html'
