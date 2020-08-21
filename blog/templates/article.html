@@ -4,7 +4,9 @@
 {% block content %}
 
 <h1>{{ article.title }}</h1>
-<small>By: {{ article.author }}</small><br/>
+<small>By: {{ article.author }}</small>
+<a href="{% url 'update_article' article.pk %}">(Edit)</a> 
+<a href="{% url 'delete_article' article.pk %}">(Delete)</a>
 <hr>
 {{ article.content|safe }}
 
