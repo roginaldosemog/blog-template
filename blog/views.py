@@ -1,12 +1,11 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from .models import Article
 
-# Create your views here.
-from blog.models import Post
+class HomeView(ListView):
+    model = Article
+    template_name = 'home.html'
 
-def home(request):
-    posts = Post.objects.all()
-    return render(request, 'home.html', {'posts': posts})
-
-def post(request, post_id):
-    post = Post.objects.get(pk=post_id)
-    return render(request, 'post.html', {'post': post})
+class ArticleView(DetailView):
+    model = Article
+    template_name = 'article.html'

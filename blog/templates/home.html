@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h1>Posts</h1>
+
+<ul>
+{% for article in object_list %}
+    <li>
+        <a href="{% url 'article' article.pk %} ">{{ article.title }}</a> - {{ article.author }}
+        {{ article.summary|safe }}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

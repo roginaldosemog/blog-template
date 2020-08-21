@@ -1,4 +1,4 @@
-"""blog_template URL Configuration
+"""blog_website URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -23,6 +23,5 @@ from blog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', views.home),
-    path('post/<int:post_id>', views.post),
+    path('', include('blog.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
