@@ -4,9 +4,11 @@
 {% block content %}
 
 <h1>{{ article.title }}</h1>
-By: {{ article.author }} - {{ article.created_at }} 
+By: {{ article.author }} - {{ article.created_at | date:"D d M Y" }} 
+{% if user.is_authenticated %}
 <a href="{% url 'update_article' article.pk %}">(Edit)</a> 
 <a href="{% url 'delete_article' article.pk %}">(Delete)</a>
+{% endif %}
 <hr>
 {{ article.content|safe }}
 

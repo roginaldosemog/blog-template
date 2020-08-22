@@ -10,9 +10,8 @@
     <li>
         <a href="{% url 'article' article.pk %} ">{{ article.title }}</a> 
         - {{ article.author }} 
-        - {{ article.created_at }} 
-        <a href="{% url 'update_article' article.pk %}">(Edit)</a> 
-        <a href="{% url 'delete_article' article.pk %}">(Delete)</a><br/>
+        - {{ article.created_at }}
+        <br/>
         {{ article.summary|safe }}
     </li>
 {% endfor %}
