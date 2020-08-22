@@ -1,5 +1,5 @@
 from django import forms
-from.models import Article
+from.models import Article, Category
 
 class ArticleForm(forms.ModelForm):
     class Meta:
@@ -14,14 +14,11 @@ class ArticleForm(forms.ModelForm):
             'category': forms.Select(attrs={'class': 'form-control'}),
         }
 
-class EditArticleForm(forms.ModelForm):
+class CategoryForm(forms.ModelForm):
     class Meta:
-        model = Article
-        fields = ('title', 'summary', 'content', 'author', 'category')
+        model = Category
+        fields = ('name',)
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'summary': forms.Textarea(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
-            'author': forms.Select(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
         }

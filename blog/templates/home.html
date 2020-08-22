@@ -9,7 +9,8 @@
 {% for article in object_list %}
     <li>
         <a href="{% url 'article' article.pk %} ">{{ article.title }}</a> 
-        - {{ article.author }} 
+        - {{ article.category }}
+        - by {{ article.author }} 
         - {{ article.created_at }}
         <br/>
         {{ article.summary|safe }}
